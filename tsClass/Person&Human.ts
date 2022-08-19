@@ -37,10 +37,10 @@ console.log(person.getFullName());
 class Human {
     //TODO: why cannot use ssn: sring; please figure out the issue: SyntaxError: Unexpected identifier.
     ssn: string; 
-    firstName;
-    lastName;
+    firstName: string;
+    lastName: string;
 
-    constructor(ssn, firstName, lastName) {
+    constructor(ssn: string, firstName: string, lastName: string) {
         this.ssn = ssn;
         this.firstName = firstName;
         this.lastName = lastName;
