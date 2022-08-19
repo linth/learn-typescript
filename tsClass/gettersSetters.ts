@@ -34,5 +34,6 @@ class Teacher {
 
 
 let t = new Teacher();
+// t.age = 0; // Error: the age is invalid.
 t.age = 30;
 console.log(t.age);
