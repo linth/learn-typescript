@@ -10,9 +10,9 @@
 
 class Student {
     // TODO: need to check.
-    readonly birthday: Date; // happen 'SyntaxError: Unexpected identifier'
+    public birthday: Date; // happen 'SyntaxError: Unexpected identifier'
 
-    constructor(birthday) {
+    constructor(birthday: Date) {
         this.birthday = birthday;
     }
 }
