@@ -1,7 +1,8 @@
 /**
  * getter & setter example.
+ *  - Use TypeScript getters/setters to control the access properties of a class.
  *  - get 
- *  - set
+ *  - set 
  * 
  * 
  * Reference:
