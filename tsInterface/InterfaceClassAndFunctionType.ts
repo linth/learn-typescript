@@ -1,5 +1,8 @@
 /**
  * interface class & function type.
+ *  - TypeScript interfaces define contracts in your code and provide explicit names for type checking.
+ *  - Interfaces may have optional properties or readonly properties.
+ *  - Interfaces can be used as function types.
  * 
  * 
  * 
