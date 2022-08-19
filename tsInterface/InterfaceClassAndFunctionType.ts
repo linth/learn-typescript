@@ -18,14 +18,27 @@ class Dog implements Json {
         this._name = name;
     }
 
+    // old style writing.
+    // toJson(): string {
+    //     return `the name of dog is ${this._name}`;
+    // }
+
+    // another way to write.
     toJson(): string {
-        return `the name of dog is ${this._name}`;
+        return JSON.stringify(this);
     }
 }
 
 
 let dog = new Dog('Long');
 console.log(dog); // Dog { _name: 'Long' }
-console.log(dog.toJson()); // the name of dog is Long
+
+// old style.
+// console.log(dog.toJson()); // the name of dog is Long
+
+// another way.
+console.log(dog.toJson()); // {"_name":"Long"}
+console.log(typeof(dog.toJson())); // string
+
 
 
