@@ -30,7 +30,7 @@ interface D extends B, C {
 
 
 interface Mailable {
-    send(email: string): boolean
+    send(email: string, after: number): boolean
     queue(email: string): boolean
 }
 
@@ -44,7 +44,7 @@ class Mail implements FutureMailable {
         return true;
     }
 
-    send(email: string): boolean {
+    send(email: string, after: number): boolean {
         console.log(`Sent email to ${email} after ${after} ms. `);
         return true;
     }
@@ -54,3 +54,9 @@ class Mail implements FutureMailable {
         return true;
     }
 }
+
+
+let m = new Mail();
+m.later('xxxx@google.com', 100);
+m.queue('xxxx@google.com');
+m.send('xxxx@google.com', 30);
