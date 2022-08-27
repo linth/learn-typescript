@@ -23,6 +23,8 @@ function genericAdd(a: number | string, b: number | string): number | string {
     if (typeof a === 'string' && typeof b === 'string') {
         return a+b;
     }
+
+    return 'undefined';
 }
 
 function genericAddByAny(a: any, b: any): any {
@@ -30,6 +32,7 @@ function genericAddByAny(a: any, b: any): any {
 }
 
 console.log(genericAdd(1, 6)); // 7
+console.log(genericAdd(1, '5')); // undefined
 console.log(genericAddByAny(20, 10)); // 30
 
 
