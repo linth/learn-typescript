@@ -21,11 +21,8 @@ let g2: People = {
     age: 22,
 }
 
-
-
 console.log(g); // { name: 'George' }
 console.log(g2); // { name: 'George', age: 22 }
-
 
 
 // * interface 不允許新增未定義的屬性
