@@ -1,5 +1,5 @@
 /**
- * ES Module Syntax
+ * ES Module Syntax: 
  *  - export default
  *  - 只匯出一個變數或function等，可使用 export default
  * 
