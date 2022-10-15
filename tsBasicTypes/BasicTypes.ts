@@ -13,6 +13,10 @@
  *  - never
  * 
  * 
+ * Top Types：指的是可以接受所有值的型別，包含 any 和 unknown。
+ * Bottom Types：指的是不能接受任何值的型別，即 never。
+ * 
+ * 
  * Reference:
  *  - https://www.logicbig.com/tutorials/misc/typescript/basic-types.html
  *  - https://juejin.cn/post/6844904037922373639
