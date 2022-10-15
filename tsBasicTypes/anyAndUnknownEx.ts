@@ -1,4 +1,6 @@
 /**
+ * top types: 指可以接受所有值的型別，包含 any 和 unknown。
+ * 
  * 基礎類型 basic type.
  *  - boolean
  *  - number
@@ -14,6 +16,7 @@
  * 
  * Reference:
  *  - https://juejin.cn/post/6844904037922373639
+ *  - https://pjchender.dev/typescript/ts-basic-types/
  */
 
 
