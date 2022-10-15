@@ -23,10 +23,14 @@
 // any: 任一類型, unknown: 未知類型
 // ! any 啥都可以分配和被分配； 任何類型都可以分配 unknown，但 unknown 不能分配給其他類型
 
-let foo: unknown;
+{
+    let foo: unknown;
 
-foo = true;
-foo = 123;
+    foo = true;
+    foo = 123;
+
+    console.log(foo);    
+}
 
 // error example.
 // foo.toFixed(2); // error.
@@ -34,10 +38,15 @@ foo = 123;
 
 
 // ! 使用 any 則會喪失類型檢查，請審慎使用
-let qoo: any;
+{
+    let qoo: any;
 
-qoo = true;
-qoo = 123;
+    qoo = true;
+    qoo = 123;
 
-qoo.toFixed(2);
-let qoo1: string = qoo;
+    qoo.toFixed(2);
+    let qoo1: string = qoo;
+
+    console.log('qoo', qoo, 'type', typeof qoo); // qoo 123 type number
+    console.log('qoo1', qoo1, 'type', typeof qoo1); // qoo1 123 type number
+}
