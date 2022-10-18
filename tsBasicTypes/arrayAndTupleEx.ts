@@ -37,6 +37,8 @@
     console.log('after tupe', tuple);
 }
 
+// TODO: add more tuple example.
+
 
 // readonly tuple
 {
