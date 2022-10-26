@@ -10,7 +10,30 @@
     interface Bird {
         fly(): void;
     }
+
+    interface GreetFunc {
+        (person: {name: string; age: number}): void;
+    }
 }
+
+// 當一個函式最終不一定有回傳值時，預設會是回傳 undefined
+{
+    interface Foo {
+        (a: number): number;
+    }
+
+    const foo: Foo = (a) => {
+        if (a > 5) {
+            return 3;
+        }
+        throw new Error('a is not over 5.');
+    }
+
+    console.log('foo', foo(10)); // foo 3
+    // console.log(foo(1)); // Error: a is not over 5.
+        
+}
+
 
 // 解構賦值 (Destructuring assignment): 是一種 JavaScript 運算式，可以把陣列或物件中的資料解開擷取成為獨立變數
 {
