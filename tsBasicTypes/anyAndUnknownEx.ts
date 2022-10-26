@@ -29,7 +29,9 @@
     foo = true;
     foo = 123;
 
-    console.log(foo);    
+    console.log(foo); // 123
+    
+    // let foo2: string = foo; // error, 因為無法將 unknow 分配給其他基本型別
 }
 
 // error example.
