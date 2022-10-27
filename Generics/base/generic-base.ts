@@ -57,3 +57,20 @@
 {
     // TODO: add real-world examples.
 }
+
+
+// 帶有預設值的泛型 Generic parameter defaults
+{
+    // 沒有給 T 的話，T 預設的型別會是 string
+    interface WrappedValue<T = string> {
+        value: T;
+    }
+
+    // 但如果只是定義預設值的話，使用者可以任意更改該型別，例如：
+    const val: WrappedValue<number> = {
+        value: 30,
+    };
+}
+
+// TODO: do more examples.
+// https://pjchender.dev/typescript/ts-generics/#%E5%B8%B6%E6%9C%89%E9%A0%90%E8%A8%AD%E5%80%BC%E7%9A%84%E6%B3%9B%E5%9E%8B-generic-parameter-defaults
