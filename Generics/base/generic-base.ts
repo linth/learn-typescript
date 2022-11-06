@@ -3,12 +3,19 @@
  *  - 請注意滿重要的寫法
  *  - Generics（泛型）很重要的一點，就是讓我們寫的方法可以適用在不同的型別，而非只能使用在單一型別。
  * 
+ * 
+ * 1. common generic writing (5種)
+ * 2. 帶有限制的泛型 Type Parameter with Constraints
+ * 3. 帶有預設值的泛型 Generic parameter defaults
+ * 
+ * 
  * Reference
  *  - https://pjchender.dev/typescript/ts-generics/
  *  - https://www.typescriptlang.org/docs/handbook/2/generics.html
  */
 
 
+// common generic writing (5種)
 {
     // use type.
     type Dict<T> = {
@@ -18,6 +25,11 @@
     // use interface.
     interface WrappedValue<T> {
         value: T;
+    }
+
+    // use class.
+    class ConcreteClass<T> {
+        concreteValue: T | undefined;
     }
 
     // arrow function.
