@@ -111,3 +111,6 @@
     getArgument(i2); // [ '11', 'fpiefpi', 'hh' ]
     getArgument(i3); // [ 1, 2, 3, 'good', 'body' ]
 }
+
+// TODO: do more examples as follows url.
+// https://kawayilinlin.github.io/typescript-lodash/document/1.number.html#numberlike-%E5%BD%A2%E5%A6%82%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B
