@@ -7,7 +7,24 @@
  * Reference:
  *  - https://www.logicbig.com/tutorials/misc/typescript/type-assertions.html
  *  - https://www.typescripttutorial.net/typescript-tutorial/typescript-type-annotations/
+ *  - https://typescript.bootcss.com/basic-types.html
  */
+
+// 類型斷言，兩種形式: `<>` & `as`
+{
+    // NeedToKnow: 似乎要定義 any, unknow 後，才可強行轉成其他類型方式?
+    let someValue: any = "this is a string";
+    let anotherValue: unknown = 111;
+
+    // 第一種 `<>`  (Angle-bracket syntax)
+    let strLength: number = (<string>someValue).length;
+    console.log(strLength); // 16
+
+    // 第二種 `as`
+    let strLength2: number = (someValue as string).length;
+    console.log(strLength2); // 16
+}
+
 
 {
     // Angle-bracket syntax
