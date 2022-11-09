@@ -8,10 +8,14 @@
  *  - https://www.typescripttutorial.net/typescript-tutorial/typescript-while/
  */
 
-let whileParam = 0;
 
-while (whileParam < 5) {
-    console.log(whileParam);
-    whileParam++;
+// basic while-loop
+{
+    let whileParam = 0;
+
+    while (whileParam < 5) {
+        console.log(whileParam);
+        whileParam++;
+    }
 }
 

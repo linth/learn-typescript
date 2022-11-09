@@ -7,23 +7,27 @@
  *  - https://www.typescripttutorial.net/typescript-tutorial/typescript-switch-case/
  */
 
-let targetId = 'btnDelete';
 
-// A simple TypeScript switch case example.
-switch (targetId) {
-    case 'btnUpdate':
-        console.log('Update');
-        break;
-    case 'btnDelete':
-        console.log('Delete'); // Delete
-        break;
-    case 'btnNew':
-        console.log('New');
-        break;
+// basic switch-case.
+{
+    let targetId = 'btnDelete';
 
-    default:
-        console.log('Default');
-        break;
+    // A simple TypeScript switch case example.
+    switch (targetId) {
+        case 'btnUpdate':
+            console.log('Update');
+            break;
+        case 'btnDelete':
+            console.log('Delete'); // Delete
+            break;
+        case 'btnNew':
+            console.log('New');
+            break;
+
+        default:
+            console.log('Default');
+            break;
+    }
 }
 
 
