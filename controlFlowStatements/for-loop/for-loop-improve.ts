@@ -25,7 +25,7 @@
 
   // 2. 使用不同的資料結構 (set) 來解答 (時間複雜度 O(n))
   const set1 = new Set(arr1);
-  const result2 = [];
+  const result2: number[] = [];
 
   for (let i=0; i<arr2.length; i++) {
     if (set1.has(arr2[i])) {
@@ -36,7 +36,7 @@
 
   // 3. 使用不同的資料結構 (hash table) 來解答 (時間複雜度 O(n))
   const map = new Map();
-  const result3 = [];
+  const result3: number[] = [];
 
   for (let i=0; i<arr1.length; i++) { // 將 arr1 中的元素加入hash table中
     map.set(arr1[i], true); 
