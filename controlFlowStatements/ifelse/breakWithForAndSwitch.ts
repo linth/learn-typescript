@@ -1,5 +1,5 @@
 /**
- * Break
+ * Break in for loop and switch.
  * 
  * Reference:
  *  - https://www.typescripttutorial.net/typescript-tutorial/typescript-break/
