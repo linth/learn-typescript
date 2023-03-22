@@ -2,7 +2,7 @@
  * Break
  * 
  * Reference:
- *  - 
+ *  - https://www.typescripttutorial.net/typescript-tutorial/typescript-break/
  */
 
 {
@@ -12,10 +12,11 @@
         { name: 'laptop', price: 1200 }
     ];
     
-    var p;
-    for (p=0; p<products.length; p++) {
-        if (products[p].price == 900)
+    for (var p=0; p<products.length; p++) {
+        if (products[p].price == 900) {
+            console.log(`find the price of products: ${products[p].name} equals to 900.`);
             break;
+        }            
     }
     
     // show the products
@@ -35,7 +36,6 @@
             breakDiscount = 15;
             break;
     }
-    
     
     console.log(`there is a ${breakDiscount} on ${products[1].name}`); // there is a 10 on tablet
 }
