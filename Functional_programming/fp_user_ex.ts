@@ -3,6 +3,26 @@
  * 
  * User case: User with filter and map.
  * 
+ * 
+ * In this example, we have an array of User objects, 
+ * and we want to filter the users who are 42 years old, 
+ * map the remaining users to their names and emails, 
+ * and calculate the average age of all users. 
+ * We achieve this by defining three higher-order functions 
+ * (filterByAge, mapToNameAndEmail, and reduceToAverageAge) 
+ * that take a User object as input and return a boolean, 
+ * an object, and a number, respectively. Then, 
+ * we use the built-in filter, map, and reduce functions 
+ * to apply these functions to each element of the users 
+ * array and create a new array with the filtered and mapped values, 
+ * and calculate the average age. 
+ * The resulting filteredUsers array contains the one user who is 42 years old, 
+ * the namesAndEmails array contains the name and email of that user, 
+ * and the averageAge variable contains the average age of all users. 
+ * This code demonstrates more advanced principles of functional programming, 
+ * such as currying and partial application with the filterByAge function, 
+ * object transformation with the mapToNameAndEmail function, 
+ * and stateful reduction with the reduceToAverageAge function.
  */
 
 {
