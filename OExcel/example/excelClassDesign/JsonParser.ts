@@ -1,15 +1,16 @@
 import * as fs from 'fs';
 
-class JsonParser {
+export class JsonParser {
   /** parse json file. */
 
   // the path of json file.
-  path_of_file: string = '';
+  path_of_file: string = './OExcel/example/example.json';
   jsonString: string = '';
 
   constructor(pof: string) {
     this.path_of_file = pof;
     this.jsonString = fs.readFileSync(this.path_of_file, 'utf-8');
+    return this;
   }
 
   getJsonFullData() {
