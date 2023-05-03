@@ -1,5 +1,9 @@
 /**
  * get json file to read data.
+ * 1) get json file.
+ * 2) use for-loop to classify your data.
+ * 3) write data into excel
+ * 4) save excel file.
  * 
  * Reference:
  *  - https://marketsplash.com/tutorials/typescript/how-to-read-json-file-in-typescript/
