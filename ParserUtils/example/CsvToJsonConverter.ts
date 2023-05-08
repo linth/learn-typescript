@@ -10,8 +10,8 @@ export class CsvToJsonConverter {
   /** convert csv file to json. */
 
   // the path of csv file.
-  path_of_file: string = './example.csv';
-  jsonOutput: any[] = [];
+  private readonly path_of_file: string = './example.csv';
+  private readonly jsonOutput: any[] = [];
 
   constructor(pof: string) {
     this.path_of_file = pof;
@@ -33,5 +33,20 @@ export class CsvToJsonConverter {
           reject(error);
         });
     });
+  }
+}
+
+
+export class JsonToCsvConverter {
+  private readonly pathOfFile: string = './example.json';
+  private readonly jsonOutput: any[] = [];
+
+  constructor(pof: string) {
+    this.pathOfFile = pof;
+    return this;
+  }
+
+  async convertJsonToGeneric(): Promise<any[]> {
+    return [];
   }
 }

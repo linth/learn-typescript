@@ -8,7 +8,7 @@
  * Reference:
  *  - https://marketsplash.com/tutorials/typescript/how-to-read-json-file-in-typescript/
  */
-import * as fs from 'fs';
+import * as fs from 'fs'; 
 
 const path_of_excel_file = 'path_of_excel_file';
 
