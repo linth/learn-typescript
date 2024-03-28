@@ -24,6 +24,13 @@ export class OTask implements ITask {
   }
 }
 
+export class CustomTask implements ITask {
+  
+  exceute(): void {
+      
+  }
+}
+
 
 // class OTask implements ITask {
 

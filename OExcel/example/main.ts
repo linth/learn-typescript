@@ -1,4 +1,4 @@
-import { FileHandler } from "./excelClassDesign/FileHandler";
+import { FileHandler, OFile } from "./excelClassDesign/FileHandler";
 import { ITask } from "./excelClassDesign/interface/ITask";
 import { OTask } from "./excelClassDesign/OTask";
 import { ParserHandler } from "./excelClassDesign/ParserHandler";
@@ -38,6 +38,18 @@ function main(showLog: boolean = false) {
   const o = new OTask();
   o.exceute();
 
+  console.log('-----');
+  
+  // TODO: 搬移到task部分
+  // 設定OFile檔案
+  const of = new OFile()
+    .setFilePath('c:\\tmp')
+    .setSaveFilePath('d:\\tmp');
+  // 設定FileHandler
+  const f = new FileHandler()
+    .setOFile(of)
+    .getOFile()?.getFilePath()
+    .getSaveFilePath();
 }
 
 
