@@ -54,20 +54,12 @@ export class EverlightTask extends OTask {
     /**
      * 新增任務, 並確認順序
      */
-    const tc = new TasksContainer()
-      .add(this.createExcelFileHnadler())
-      .add(this.createParserHandler());
-
-    const t = new TaskHandler(tc.tasks);
-  }
-}
-
-export class TasksContainer {
-  tasks: ITask[] = [];
-
-  add(t: ITask): this {
-    this.tasks.push(t);
-    return this;
+    const t = new TaskHandler()
+      .createExcelFileHnadlerAndPushToTasks()
+      .createParserHandlerAndPushToTasks()
+      .tasks
+    
+    console.log('end of excute().');
   }
 }
 

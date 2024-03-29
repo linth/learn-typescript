@@ -1,6 +1,8 @@
 // import { JsonFileHandler } from "./FileHandler";
+import { ExcelFileHnadler } from "./FileHandler";
 import { ITask } from "./interface/ITask";
-
+import { OTask } from "./OTask";
+import { ParserHandler } from "./ParserHandler";
 
 
 /**
@@ -11,10 +13,29 @@ import { ITask } from "./interface/ITask";
  * 
  */
 export class TaskHandler {
-  private tasks: ITask[];
+  public tasks: ITask[] = [];
+  private otask: OTask;
 
-  constructor(tasks: ITask[]) {
-    this.tasks = tasks;
+  constructor() {
+    // this.tasks = tasks;
+    this.otask = new OTask();
+  }
+
+  add(t: ITask): this {
+    this.tasks.push(t);
+    return this;
+  }
+  
+  createExcelFileHnadlerAndPushToTasks(): this {
+    this.otask.efh = new ExcelFileHnadler();
+    this.add(this.otask.efh);
+    return this;
+  }
+
+  createParserHandlerAndPushToTasks(): this {
+    this.otask.ph = new ParserHandler();
+    this.add(this.otask.ph);
+    return this;
   }
 
   exceute(): void {
@@ -29,6 +50,38 @@ export class TaskHandler {
     }
   }
 }
+
+
+// export class TasksContainer {
+//   tasks: ITask[] = [];
+//   otask: OTask;
+
+//   constructor() {
+//     this.otask = new OTask();
+//   }
+
+//   add(t: ITask): this {
+//     this.tasks.push(t);
+//     return this;
+//   }
+
+//   addHandler(t: ITask): this {
+//     this.tasks.push(t);
+//     return this;
+//   }
+
+//   createExcelFileHnadlerAndPushToTasks(): this {
+//     this.otask.efh = new ExcelFileHnadler();
+//     this.addHandler(this.otask.efh);
+//     return this;
+//   }
+
+//   createParserHandlerAndPushToTasks(): this {
+//     this.otask.ph = new ParserHandler();
+//     this.addHandler(this.otask.ph);
+//     return this;
+//   }
+// }
 
 
 /**

@@ -38,21 +38,21 @@ function main(showLog: boolean = false) {
 
   const elt = new EverlightTask()
     .exceute();
-  const o = new OTask();
-  o.exceute();
+  // const o = new OTask();
+  // o.exceute();
 
   console.log('-----');
   
   // TODO: 搬移到task部分
-  // 設定OFile檔案
-  const of = new OFile()
-    .setFilePath('c:\\tmp')
-    .setSaveFilePath('d:\\tmp');
-  // 設定FileHandler
-  const f = new FileHandler()
-    .setOFile(of)
-    .getOFile()?.getFilePath()
-    .getSaveFilePath();
+  // // 設定OFile檔案
+  // const of = new OFile()
+  //   .setFilePath('c:\\tmp')
+  //   .setSaveFilePath('d:\\tmp');
+  // // 設定FileHandler
+  // const f = new FileHandler()
+  //   .setOFile(of)
+  //   .getOFile()?.getFilePath()
+  //   .getSaveFilePath();
 }
 
 
