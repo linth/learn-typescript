@@ -35,7 +35,7 @@ export class TaskHandler {
  * 桃園億光任務流處理
  */
 class EverlightTaskHandler extends TaskHandler {
-
+  
 }
 
 

@@ -1,8 +1,4 @@
-import { FileHandler } from "./excelClassDesign/FileHandler";
-import { ITask } from "./excelClassDesign/interface/ITask";
-import { OTask } from "./excelClassDesign/OTask";
-import { ParserHandler } from "./excelClassDesign/ParserHandler";
-import { TaskHandler } from "./excelClassDesign/TaskHandler";
+import { EverlightTask } from "./excelClassDesign/OTask";
 
 
 // declare global {
@@ -35,9 +31,8 @@ function main(showLog: boolean = false) {
   // .getJasonData();
   // console.log('JasonData', JasonData);
 
-  const o = new OTask();
-  o.exceute();
-
+  const elt = new EverlightTask()
+    .exceute();
 }
 
 

@@ -9,12 +9,10 @@ import { ITask } from './interface/ITask';
 /**
  * 處理檔案的hander流程
  */
-export class FileHandler implements ITask {
-  // private oFile: OFile;
-
-  constructor() { // oFile: OFile
+class FileHandler implements ITask {
+  
+  constructor() {
     console.log('call FileHandler constructor().');
-    // this.oFile = oFile;
   }
 
   exceute(): void {
@@ -25,31 +23,53 @@ export class FileHandler implements ITask {
 }
 
 /**
+ * Excel handler
+ */
+export class ExcelFileHnadler extends FileHandler {
+  constructor() {
+    console.log('call ExcelFileHnadler constructor().');    
+    super();
+  }
+}
+
+/**
  * XML handler
  */
-class XmlFileHandler extends FileHandler {
-  
+export class XmlFileHandler extends FileHandler {
+  constructor() {
+    console.log('call XmlFileHandler constructor().');    
+    super();
+  }
 }
 
 /**
  * JSON handler
  */
-class JSONFileHandler extends FileHandler {
-
+export class JSONFileHandler extends FileHandler {
+  constructor() {
+    console.log('call JSONFileHandler constructor().');    
+    super();
+  }
 }
 
 /**
  * CSV handler
  */
-class CSVFileHandler extends FileHandler {
-
+export class CSVFileHandler extends FileHandler {
+  constructor() {
+    console.log('call CSVFileHandler constructor().');    
+    super();
+  }
 }
 
 /**
  * TXT handler
  */
-class TxtFileHandler extends FileHandler {
-
+export class TxtFileHandler extends FileHandler {
+  constructor() {
+    console.log('call TxtFileHandler constructor().');    
+    super();
+  }
 }
 
 
