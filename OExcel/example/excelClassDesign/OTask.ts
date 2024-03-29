@@ -71,6 +71,13 @@ export class TasksContainer {
   }
 }
 
+export class CustomTask implements ITask {
+  
+  exceute(): void {
+      
+  }
+}
+
 
 // class OTask implements ITask {
 
