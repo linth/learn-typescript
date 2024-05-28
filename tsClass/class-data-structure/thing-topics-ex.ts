@@ -3,7 +3,8 @@
  * 
  */
 
-{
+namespace ThingTopicManagement {
+  
   interface App {
     id: string;
     name: string;
@@ -35,7 +36,7 @@
     projectId: string;
   }
 
-  class Thing {
+  export class Thing {
     private _things: IThing;
 
     constructor(things: IThing) {
@@ -52,7 +53,7 @@
   }
 
   // 使用factory design pattern.
-  class ThingFactory {
+  export class ThingFactory {
     static createThing(id: string, reportInterval: number, commsTimeout: number, disconnectTimeout: number, topics: Topics, appId: string, projectId: string): Thing {
       const things: IThing = {
         id,
@@ -67,41 +68,38 @@
     }
   }
 
+  // interface ThingReport {
+  //   thingId: string;
+  //   timestamp: Date;
+  //   data: any;
+  // }
 
-  interface ThingReport {
-    thingId: string;
-    timestamp: Date;
-    data: any;
-  }
-
-  interface Alert {
-    type: string;
-    thingId: string;
-    message: string;
-    timestamp: Date;
-  }
-
-  const t = new Thing({
-    id: '1',
-    reportInterval: 1,
-    commsTimeout: 2,
-    disconnectTimeout: 3,
-    topics: {
-      alertList: {},
-      sohList: {},
-      socList: {}
-    },
-    appId: '1',
-    projectId: '1',
-  });
-
-  console.log(t.things.appId); // 1
-  console.log(t.things.topics.alertList); // {}
-  
-
-  const tf = ThingFactory.createThing('2', 4, 4, 2, {alertList: {}, sohList: {}, socList: {}}, '2', '2');
-  console.log(tf.things.appId); // 2
-  console.log(tf.things.reportInterval); // 4
+  // interface Alert {
+  //   type: string;
+  //   thingId: string;
+  //   message: string;
+  //   timestamp: Date;
+  // }
 }
 
+const ttm = new ThingTopicManagement.Thing({
+  id: '1',
+  reportInterval: 1,
+  commsTimeout: 2,
+  disconnectTimeout: 3,
+  topics: {
+    alertList: {},
+    sohList: {},
+    socList: {}
+  },
+  appId: '1',
+  projectId: '1',
+});
 
+console.log(ttm.things.appId); // 1
+console.log(ttm.things.topics.alertList); // {}
+
+
+const tf = ThingTopicManagement.ThingFactory.createThing('2', 4, 4, 2, {alertList: {}, sohList: {}, socList: {}}, '2', '2');
+console.log(tf.things.appId); // 2
+console.log(tf.things.reportInterval); // 4
