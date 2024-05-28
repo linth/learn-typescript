@@ -51,6 +51,22 @@
     }
   }
 
+  // 使用factory design pattern.
+  class ThingFactory {
+    static createThing(id: string, reportInterval: number, commsTimeout: number, disconnectTimeout: number, topics: Topics, appId: string, projectId: string): Thing {
+      const things: IThing = {
+        id,
+        reportInterval,
+        commsTimeout,
+        disconnectTimeout,
+        topics,
+        appId,
+        projectId,
+      };
+      return new Thing(things);
+    }
+  }
+
 
   interface ThingReport {
     thingId: string;
@@ -82,6 +98,10 @@
   console.log(t.things.appId); // 1
   console.log(t.things.topics.alertList); // {}
   
+
+  const tf = ThingFactory.createThing('2', 4, 4, 2, {alertList: {}, sohList: {}, socList: {}}, '2', '2');
+  console.log(tf.things.appId); // 2
+  console.log(tf.things.reportInterval); // 4
 }
 
 
