@@ -1,5 +1,5 @@
 /**
- * thing, topics, 
+ * thing, topics 封裝資料範例
  * 
  */
 
@@ -36,10 +36,18 @@
   }
 
   class Thing {
-    things: IThing;
+    private _things: IThing;
 
     constructor(things: IThing) {
-      this.things = things;
+      this._things = things;
+    }
+
+    get things(): IThing {
+      return this._things;
+    }
+
+    set things(value: IThing) {
+      this._things = value;
     }
   }
 
