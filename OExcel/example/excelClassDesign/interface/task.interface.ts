@@ -1,4 +1,6 @@
 
 export interface ITask {
-  exceute(): void;
+	excute(): void;
 }
+
+

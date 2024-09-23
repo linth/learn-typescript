@@ -1,107 +1,101 @@
-import { ExcelFileHnadler } from "./FileHandler";
-import { ITask } from "./interface/ITask";
-import { ParserHandler } from "./ParserHandler";
-import { TaskHandler } from "./TaskHandler";
+import { Workbook, Worksheet } from "exceljs";
+import { ITask } from "./interface/task.interface";
+import path from "path";
+
+// data type: json for worksheet's columns.
+export type Column = {
+	header: string;
+	key: string;
+	width: number;
+}
+
+export type Data = {
+	name: string;
+	age: number;
+	email: string;
+}
+
+// type Column<T> = {
+// 	header: string;
+// 	key: keyof T;
+// 	width: number;
+// };
+
+
+// 專注新增任務與任務行為
+export abstract class AbsTask implements ITask {
+	excute(): void {}
+}
+
 
 /**
- * 專注新增任務與任務行為
+ * excel tasks.
  */
-export class OTask implements ITask {
-  ph?: ParserHandler;
-  efh?: ExcelFileHnadler;
+export abstract class AbsExcelTask implements ITask {
+	wb: Workbook;
+	ws: Worksheet;
+	header?: Column[];
+	data?: Data[];
 
-  /**
-   * 可建立一些functions, 方便後續直接使用此class的功能進行串接。
-   */
-  createParserHandler(): this {
-    this.ph = new ParserHandler();
-    return this;
-  }
+	constructor(wb: Workbook, ws: Worksheet) {
+		this.wb = wb;
+		this.ws = ws;
+	}
 
-  createExcelFileHnadler(): this {
-    this.efh = new ExcelFileHnadler();
-    return this;
-  }
+	setHeader(h: Column[]): this {
+		this.header = h;
+		return this;
+	}
 
-  exceute(): void {
-    // console.log('OTask executed.');
+	setData(data: Data[]): this {
+		this.data = data;
+		return this;
+	}
 
-    // const p = new ParserHandler();
-    // const f = new FileHandler();
-    
-    // const arr: ITask[] = [];
-    // arr.push(f);
-    // arr.push(p);
-    // const t = new TaskHandler(arr);
-  }
+	gen_crud(): void {} // task: generate crud tasks.
+	excute(): void {} // empty excute task.
 }
 
-/**
- * 桃園億光的任務
- */
-export class EverlightTask extends OTask {
+export class OTask extends AbsExcelTask {
+	fileName: string;
+	filePath: string;
+	saveFilePath?: string;
+	samePath?: boolean = true;
 
-  exceute(): void {
-    console.log('EverlightTask executed.');
-    
-    // const p = new ParserHandler();
-    // const f = new ExcelFileHnadler();
-    
-    // const arr: ITask[] = [];
-    // arr.push(this.createExcelFileHnadler());
-    // arr.push(this.createParserHandler());
+	/**
+	 * 絕對路徑: __dirname
+	 * 絕對路徑 + 檔案名稱: __filename
+	 */
 
-    /**
-     * 新增任務, 並確認順序
-     */
-    const t = new TaskHandler()
-      .createExcelFileHnadlerAndPushToTasks()
-      .createParserHandlerAndPushToTasks()
-      .tasks
-    
-    console.log('end of excute().');
-  }
+	constructor(wb: Workbook, ws: Worksheet, fn?: string, fp?: string) {
+		super(wb, ws);
+		this.fileName = fn || `myWorkbook-${Date.now()}`;
+		this.filePath = fp || path.join(`OExcel/example/${this.fileName}.xlsx`);
+	}
+
+	save() {		
+		this.wb.xlsx.writeFile(this.filePath)
+		.then(() => {
+			console.log('Workbook saved successfully!');
+		})
+		.catch((error) => {
+			console.log('Error saving workbook:', error);
+		})
+	}
+
+	excute(): void {
+		// add header to the worksheet (headers)
+		if (this.header) {
+			this.ws.columns = this.header;
+		}
+
+		// add data to the worksheet (data)
+		if (this.data) {
+			for (let i=0; i<this.data.length; i++) {
+				this.ws.addRow(this.data[i]);
+			}
+		}
+
+		this.save();
+	}
 }
-
-export class CustomTask implements ITask {
-  
-  exceute(): void {
-      
-  }
-}
-
-
-// class OTask implements ITask {
-
-//   /**
-//    * 讀取excel文件
-//    * @param filePath 
-//    * @returns 
-//    */
-//   public loadFile(filePath: string): this {
-//     console.log('loadFile');
-    
-//     return this;
-//   }
-
-//   /**
-//    * 處理excel資料
-//    * @returns 
-//    */
-//   public processData(): this {
-//     return this;
-//   }
-
-//   /**
-//    * 將資料匯出到文件
-//    * @param exportFilePath 
-//    */
-//   public exportToFile(exportFilePath: string): this {
-//     return this;
-//   }
-
-//   public exceute(): void {
-    
-//   }
-// }
-
