@@ -1,2 +1,5 @@
 node_modules/
 *.xlsx
+
+# figure, photo, ..., etc.
+*.png
