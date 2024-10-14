@@ -15,11 +15,3 @@ export class ConcreteHandler extends AbsHandler {
 }
 
 
-export class DataHander extends ConcreteHandler {
-	// data header.
-}
-
-
-export class DataBody extends ConcreteHandler {
-	// data body.
-} 

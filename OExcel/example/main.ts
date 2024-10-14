@@ -1,5 +1,5 @@
 import { Workbook } from "exceljs";
-import { Column, Data, OTask } from "./excelClassDesign/OTask";
+import { Column, Data, OExcelConcreteTask, OTask } from "./excelClassDesign/OTask";
 
 
 // declare global {
@@ -37,7 +37,13 @@ function main(showLog: boolean = false) {
   ];
 
   // tasks.
-  const o = new OTask(wb, ws)
+  // const o = new OTask(wb, ws)
+  //   .setHeader(header)
+  //   .setData(data)
+  //   .excute();
+
+  const fileName = 'haha'; // if we don't set it up, and the default value is `new_excel-${Date.now()}`.
+  const oect = new OExcelConcreteTask(wb, ws, fileName)
     .setHeader(header)
     .setData(data)
     .excute();
