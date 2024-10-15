@@ -20,12 +20,16 @@
  * Reference:
  *  - https://www.logicbig.com/tutorials/misc/typescript/basic-types.html
  *  - https://juejin.cn/post/6844904037922373639
+ *  - https://juejin.cn/post/7168843998331666446
  */
 
 // boolean
 {
     let active: boolean = false;
     let enabled: boolean = true;
+
+    let res: boolean = active = enabled ? true : false;
+    console.log(`res: ${res}`);
 }
 
 
