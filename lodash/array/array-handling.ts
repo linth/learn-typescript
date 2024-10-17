@@ -1,8 +1,8 @@
 /**
  * 使用單純js, ts來操作array
- *  - map
- *  - filter
- *  - reduce
+ *  - map: 每個元素皆做相同動作
+ *  - filter: 過濾掉元素
+ *  - reduce: 累加元素
  *  - find: 找到大於3的元素
  *  - some: 檢查是否有偶數
  *  - every: 檢查是否每個元素都是奇數
@@ -48,7 +48,7 @@
 
   // ts
   const array_ts: number[] = [1, 2, 3, 4, 5];
-  const sum_ts: number = array_ts.reduce((acc, n) => acc + n, 0);
+  const sum_ts: number = array_ts.reduce((acc, n) => acc + n, 0); // acc: current number, n: the value of array, 0: inital value.
   console.log(sum_ts); // 15
 }
 
