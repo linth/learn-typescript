@@ -1,10 +1,17 @@
 import { Workbook, Worksheet } from "exceljs";
 import path from "path";
 import { Column } from "./types/excelType/column-data";
-import { IExcelTask } from "./interface/excelTask.interface";
+import { IExcelTask, ReFIExcelTask } from "./interface/excelTask.interface";
 
 
-export abstract class AbsExcelTask<T> implements IExcelTask<T> {
+// Options Object: add additional options can provide the setting of excel.
+interface ExcelTaskOption<T> {
+	headers?: Column<T>[];
+	data?: T[];
+}
+
+
+export abstract class AbsExcelTask<T> implements ReFIExcelTask<T> {
 	protected wb: Workbook;
 	protected ws: Worksheet;
 	protected headers: Column<T>[] = [];
@@ -19,17 +26,14 @@ export abstract class AbsExcelTask<T> implements IExcelTask<T> {
 		this.filePath = filePath || path.join(`OExcel/example/${this.fileName}.xlsx`);
 	}
 
+	// set up parameters
+	configure(options: ExcelTaskOption<T>): this {
+		if (options.headers) this.headers = options.headers;
+		if (options.data) this.data = options.data;
+		return this;
+	}
+
 	abstract execute(): Promise<void>;
-
-	setHeader(headers: Column<T>[]): this {
-		this.headers = headers;
-		return this;
-	}
-
-	setData(data: T[]): this {
-		this.data = data;
-		return this;
-	}
 
 	async save(): Promise<void> {
 		await this.wb.xlsx.writeFile(this.filePath);
