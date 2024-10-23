@@ -2,6 +2,7 @@
  * iterator: 
  * 	- number
  * 	- object
+ * 	- gnerator function
  * 
  */
 
