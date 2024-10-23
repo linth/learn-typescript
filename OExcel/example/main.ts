@@ -17,9 +17,14 @@ import { ConcreteExcelTask } from "./excelClassDesign/OTask-code-refactory";
 
 
 function main(showLog: boolean = false) {
+  // parameters
+  const excelFileName = 'george-doc';
+  const sheetName = 'My Sheet';
+
+
   // excel initial.
   const wb = new Workbook();
-  const ws = wb.addWorksheet('My Sheet')
+  const ws = wb.addWorksheet(sheetName);
 
   // // add header. 
   // // TODO: different data type, custom data type, 產生data header (給欄位名稱/順序)
@@ -50,6 +55,8 @@ function main(showLog: boolean = false) {
   //   .setData(data)
   //   .excute();
 
+
+
   // define data type
   interface ExampleData {
     name: string;
@@ -57,7 +64,7 @@ function main(showLog: boolean = false) {
     email: string;
   }
 
-  // define header
+  // define headers
 	const h: Column<ExampleData>[] = [
 		{ header: 'name', key: 'name', width: 20 },
 		{ header: 'age', key: 'age', width: 10 },
@@ -71,11 +78,12 @@ function main(showLog: boolean = false) {
 		{ name: 'wangwu', age: 35, email: 'wangwu@example.com' }
 	];
 
-  const excelTask = new ConcreteExcelTask<ExampleData>(wb, ws, 'george-doc')
-		.setHeader(h)
-		.setData(d);
-
-	excelTask.execute()
+  const excelTask = new ConcreteExcelTask<ExampleData>(wb, ws, excelFileName)
+    .configure({
+      headers: h,
+      data: d
+    })
+    .execute()
 		.then(() => console.log('Excel document generating successfully ....'))
 		.catch(error => console.error('Generate Excel document something wrong:', error));
 }
