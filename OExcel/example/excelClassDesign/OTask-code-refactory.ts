@@ -8,6 +8,8 @@ import { IExcelTask, ReFIExcelTask } from "./interface/excelTask.interface";
 interface ExcelTaskOption<T> {
 	headers?: Column<T>[];
 	data?: T[];
+	fileName?: string;
+	filePath?: string;
 }
 
 
@@ -30,6 +32,8 @@ export abstract class AbsExcelTask<T> implements ReFIExcelTask<T> {
 	configure(options: ExcelTaskOption<T>): this {
 		if (options.headers) this.headers = options.headers;
 		if (options.data) this.data = options.data;
+		if (options.fileName) this.fileName = options.fileName;
+		if (options.filePath) this.filePath = options.filePath;
 		return this;
 	}
 
@@ -39,6 +43,7 @@ export abstract class AbsExcelTask<T> implements ReFIExcelTask<T> {
 		await this.wb.xlsx.writeFile(this.filePath);
 	}
 }
+
 
 // 具體的Excel任務實現範例
 export class ConcreteExcelTask<T> extends AbsExcelTask<T> {

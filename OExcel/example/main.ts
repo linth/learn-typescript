@@ -1,6 +1,7 @@
 import { Workbook } from "exceljs";
 import { Column } from "./excelClassDesign/types/excelType/column-data";
 import { ConcreteExcelTask } from "./excelClassDesign/OTask-code-refactory";
+import * as readline from 'readline';
 // import { Column, Data, OExcelConcreteTask, OTask } from "./excelClassDesign/OTask";
 
 
@@ -15,11 +16,18 @@ import { ConcreteExcelTask } from "./excelClassDesign/OTask-code-refactory";
 //   return this;
 // };
 
+async function main(showLog: boolean = false) {
+  /**
+   * 流程: 
+   *  - Generater data -> llm
+   *  - 封裝 header, data -> type, data structure.
+   *  - 產生 excel
+   */
 
-function main(showLog: boolean = false) {
   // parameters
-  const excelFileName = 'george-doc';
   const sheetName = 'My Sheet';
+  const excelFileName = 'george-doc';
+  const excelFilePath = ''; // OExcel/example/${excelFileName}.xlsx
 
 
   // excel initial.
@@ -56,6 +64,12 @@ function main(showLog: boolean = false) {
   //   .excute();
 
 
+  /**
+   * data structure
+   *  - data type
+   *  - data structure for header, i.e., [{}, {}, {}, {}]
+   *  - data structure for data, i.e., [{}, {}, {}, {}]
+   */
 
   // define data type
   interface ExampleData {
