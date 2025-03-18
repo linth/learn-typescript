@@ -1,8 +1,11 @@
 # TypeScript 型別
 
 
-## 通用型別
+## 通用型別 (Universal types)
 - any
+- unknown
+- void
+- never
 
 ## 基本型別
 - string
