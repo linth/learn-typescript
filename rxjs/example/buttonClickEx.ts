@@ -1,7 +1,7 @@
 import { fromEvent, map } from "rxjs";
 import { EventEmitter } from "stream";
 
-
+// event -> observable -(subscribe)-> subscriber
 
 // !非常簡單的範例
 {
