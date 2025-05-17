@@ -8,6 +8,7 @@
  * 	- create(proto, propertiesObject): 創建一個新物件，使用現有的物件來提供新創建的物件的 [[Prototype]]（原型）。可選地，還可以提供一個屬性描述符物件來定義新物件的屬性。
  * 	- defineProperty(obj, prop, descriptor): 直接在一個物件上定義一個新的屬性，或者修改一個物件上已有的屬性，並返回這個物件。這個方法允許你精確地控制屬性的特性（例如是否可寫、可枚舉、可配置等）。
  */
+// TODO: 增加屬性操作, for-loop, if-else, while-loop, ..., etc.
 
 {
 	const person = {
@@ -28,6 +29,10 @@
 	// entries: 返回 object 可枚舉的屬性/值 [key, value]
 	const entries = Object.entries(person);
 	console.log(entries); // [ [ 'name', 'george' ], [ 'age', 33 ], [ 'city', 'New York' ] ]
+
+  for (const [key, value] of Object.entries(person)) {
+    console.log(`${key}: ${value}`);
+  }
 }
 
 
