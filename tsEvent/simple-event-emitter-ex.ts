@@ -3,7 +3,6 @@ import { emit, eventNames, off } from "process";
 
 {
   // 初步簡單設計流程
-
   const eventBroker = new EventEmitter();
 
   eventBroker.on('event-1', () => {
@@ -25,9 +24,28 @@ import { emit, eventNames, off } from "process";
    *  - 創建一個class來包裝eventEmitter
    */
   type EventMap = {
-    'event-1': [];
-    'event-2': [arg1: number, arg2: string];
+    'login': [username: string, password: string];
+    'logout': [username: string];
+    'changePermission': [username: string, newPermission: string];
   };
+
+  class TypedEventEmitter<T extends Record<string, any>> {
+    private emitter = new EventEmitter();
+
+    emit<K extends keyof T>(eventName: K, ...args: T[K]): void {
+      this.emitter.emit(eventName as string, ...args);
+    }
+
+    on<K extends keyof T>(eventName: K, handler: (...args: T[K]) => void): void {
+      this.emitter.on(eventName as string, handler);
+    }
+
+    off<K extends keyof T>(eventName: K, handler: (...args: T[K]) => void): void {
+      this.emitter.off(eventName as string, handler);
+    }
+  }
+
+  const authEventBroker = new TypedEventEmitter<EventMap>();
 
   // class TypedEventEmitter<T extends Record<string, any>> {
   //   private emitter = new EventEmitter();
