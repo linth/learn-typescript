@@ -2,6 +2,9 @@ import { Workbook } from "exceljs";
 import { Column } from "./excelClassDesign/types/excelType/column-data";
 import { ConcreteExcelTask } from "./excelClassDesign/OTask-code-refactory";
 import * as readline from 'readline';
+import { NewConcreteExcelTask } from "./excelClassDesign/OTask-handler-enhanced";
+import { ExcelHandlerOption } from "./excelClassDesign/interface/handler/handler.excel.interface";
+import { ConcreteExcelHandler } from "./excelClassDesign/OHandler";
 // import { Column, Data, OExcelConcreteTask, OTask } from "./excelClassDesign/OTask";
 
 
@@ -26,7 +29,7 @@ async function main(showLog: boolean = false) {
 
   // parameters
   const sheetName = 'My Sheet';
-  const excelFileName = 'george-doc';
+  const excelFileName = 'george-doc-v3';
   const excelFilePath = ''; // OExcel/example/${excelFileName}.xlsx
 
 
@@ -92,14 +95,19 @@ async function main(showLog: boolean = false) {
 		{ name: 'wangwu', age: 35, email: 'wangwu@example.com' }
 	];
 
-  const excelTask = new ConcreteExcelTask<ExampleData>(wb, ws, excelFileName)
-    .configure({
-      headers: h,
-      data: d
-    })
-    .execute()
-		.then(() => console.log('Excel document generating successfully ....'))
-		.catch(error => console.error('Generate Excel document something wrong:', error));
+  // const excelTask = new ConcreteExcelTask<ExampleData>(wb, ws, excelFileName)
+  //   .configure({
+  //     headers: h,
+  //     data: d
+  //   })
+  //   .execute()
+	// 	.then(() => console.log('Excel document generating successfully ....'))
+	// 	.catch(error => console.error('Generate Excel document something wrong:', error));
+
+
+  // 建立 NewConcreteExcelTask 實例並執行 execute 方法
+  console.log(`excelFileName: ${excelFileName}`);  
+  const nce = new NewConcreteExcelTask<ExampleData>(wb, ws).execute(h, d, excelFileName);
 }
 
 
