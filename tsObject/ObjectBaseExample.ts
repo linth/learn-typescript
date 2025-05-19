@@ -70,3 +70,25 @@
 
 	console.log(Object.getPrototypeOf(dog) === animal); // true
 }
+
+
+{
+	const person1 = {};
+
+	Object.defineProperty(person1, 'name', {
+		value: 'Bob',
+		writable: false, // 不可寫
+		enumerable: true, // 可枚舉
+		configurable: false // 不可配置
+	});
+
+	console.log(person1); // Bob
+	// person.name = 'Charlie'; // 嘗試修改，但在嚴格模式下會報錯，非嚴格模式下靜默失敗
+	// console.log(person.name); // Bob (值沒有改變)
+
+	// console.log(Object.keys(person)); // ["name"] (因為 enumerable: true)
+
+	// 嘗試刪除會報錯 (因為 configurable: false)
+	// delete person.name;
+	// console.log(person.name);
+}
