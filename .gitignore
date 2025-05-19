@@ -3,3 +3,5 @@ node_modules/
 
 # figure, photo, ..., etc.
 *.png
+
+.codemap

@@ -7,11 +7,11 @@ console.log('hello world.');
 
 
 function add(a: number, b: number): a is number {
-    if (typeof a === 'number' && typeof b === 'number') {
-        return true;
-    } else {
-        return false;
-    }
+  if (typeof a === 'number' && typeof b === 'number') {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 console.log(add(10, 2));
