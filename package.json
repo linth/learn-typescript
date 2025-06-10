@@ -15,16 +15,16 @@
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "rxjs": "^7.8.2",
-    "ts-node": "^10.9.1",
     "typescript-lodash": "^0.2.2",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
     "xml2js": "^0.5.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.15.31",
     "@types/winston": "^2.4.4",
     "@types/xml2js": "^0.4.11",
-    "typescript": "^5.8.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

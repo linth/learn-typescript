@@ -1,0 +1,9 @@
+{
+    "code-runner.executorMap": {
+        "typescript": "./node_modules/.bin/ts-node $fullFileName"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.showExecutionMessage": false,
+    "code-runner.clearPreviousOutput": true
+}
